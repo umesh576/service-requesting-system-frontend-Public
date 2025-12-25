@@ -74,7 +74,7 @@ const BookservicePage = () => {
         } else {
           // Token is invalid or expired
           toast.error("Session expired. Please login again.");
-          localStorage.removeItem("token");
+
           router.push(`/login?redirect=/bookservice/${serviceId}`);
           return;
         }
@@ -257,7 +257,6 @@ const BookservicePage = () => {
             errorMessage = "Invalid booking data. Please try again.";
           } else if (errorMessage.includes("User not found")) {
             errorMessage = "User account not found. Please login again.";
-            // localStorage.removeItem("token");
             router.push("/login");
           } else if (errorMessage.includes("Service not found")) {
             errorMessage =
@@ -265,7 +264,6 @@ const BookservicePage = () => {
           }
         } else if (response.status === 401) {
           errorMessage = "Session expired. Please login again.";
-          // localStorage.removeItem("token");
           router.push("/login");
         } else if (response.status === 500) {
           errorMessage = "Server error. Please try again later.";

@@ -14,8 +14,6 @@ const ServiceCard = ({ service }) => {
   const BookService = async (serviceId) => {
     // Fetch user details including ID from backend
     console.log("Service ID:", serviceId);
-    // Only pass serviceId in URL, userId comes from token
-    // router.push(`/book-service/${serviceId}`);
     router.push(`/bookedService/${serviceId}`);
   };
   const {

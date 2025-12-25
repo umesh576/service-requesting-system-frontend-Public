@@ -120,13 +120,11 @@ const BookServicePage = () => {
         } else {
           console.warn("User ID not found in token payload:", payload);
           toast.error("Unable to identify user. Please login again.");
-          localStorage.removeItem("token");
+
           router.push("/login");
         }
       } catch (error) {
         console.error("Error decoding token:", error);
-        toast.error("Invalid session. Please login again.");
-        localStorage.removeItem("token");
         router.push("/login");
       }
     };
@@ -273,14 +271,6 @@ const BookServicePage = () => {
 
         if (responseData.message) {
           errorMessage = responseData.message;
-        } else if (response.status === 400) {
-          errorMessage = "Invalid booking data";
-        } else if (response.status === 401) {
-          errorMessage = "Authentication failed. Please login again.";
-          localStorage.removeItem("token");
-          router.push("/login");
-        } else if (response.status === 404) {
-          errorMessage = "Service not found";
         } else if (response.status === 409) {
           errorMessage = "You already have a booking for this service";
         }

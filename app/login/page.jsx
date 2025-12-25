@@ -9,7 +9,7 @@ export default function LoginPage() {
   const router = useRouter();
 
   const onSubmit = async (data) => {
-    console.log(data);
+    // console.log(data);
     const res = await fetch("http://localhost:8080/user/login", {
       method: "POST",
       headers: {
