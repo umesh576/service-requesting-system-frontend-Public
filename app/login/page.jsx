@@ -22,8 +22,6 @@ export default function LoginPage() {
     console.log(result);
     if (res.ok) {
       localStorage.setItem("token", result.token);
-      // alert("Login successful");
-      // console.log("login sucessfull");
       toast("login sucessfull");
       router.push("/");
     } else {
