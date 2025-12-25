@@ -50,7 +50,7 @@ const Header = () => {
           setUserDetails(null);
         }
       } catch (error) {
-        console.error("Error validating token:", error);
+        // console.error("Error validating token:", error);
         setIsUserLogin(false);
         setUserDetails(null);
       } finally {
@@ -63,7 +63,7 @@ const Header = () => {
 
   // Add this useEffect to see when userDetail updates
   useEffect(() => {
-    console.log("userDetail state updated:", userDetail);
+    // console.log("userDetail state updated:", userDetail);
   }, [userDetail]);
 
   // Handle logout
